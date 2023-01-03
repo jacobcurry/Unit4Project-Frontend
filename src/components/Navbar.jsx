@@ -30,8 +30,8 @@ const Navbar = () => {
         <div className="caret-container" onClick={() => setOpen(!open)}>
           <p className="username-p">Username</p>
           <i className="bx bx-chevron-down" id="arrow"></i>
-          {open && <DropdownMenu />}
         </div>
+        {open && <DropdownMenu />}
       </div>
     </div>
   );
