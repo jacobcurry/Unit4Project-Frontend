@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "../assets/Logo.png";
-import { Navigate } from "react-router-dom";
+import Posts from "./Posts";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home-container">
       <div className="home-post-container">
@@ -14,6 +14,7 @@ const Home = () => {
           Create Post
         </div>
       </div>
+      <Posts baseUrl={props.baseUrl} />
     </div>
   );
 };

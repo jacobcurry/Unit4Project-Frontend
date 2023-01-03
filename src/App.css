@@ -142,7 +142,8 @@ a {
 
 .home-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-post-container {
@@ -223,6 +224,22 @@ a {
   padding: 1em;
 }
 
+.post-link {
+  background-color: #1a1a1a;
+  border: 1px solid #353536;
+  color: #d0d2d4;
+  font-family: "Verdana", "arial", "helvetica", "sans-serif";
+  border-radius: 5px;
+  padding: 2em 1em;
+}
+
+.post-img {
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  border: 1px solid #353536;
+  color: #d0d2d4;
+}
+
 .post-button-form {
   margin: 1em 0 0 1em;
   padding: 0.5em 1.2em;
@@ -239,6 +256,90 @@ a {
 
 .post-button-form:hover {
   background-color: #d0d2d4;
+}
+
+.post-type {
+  margin-bottom: 1em;
+  display: flex;
+}
+
+.type-btn {
+  width: 100%;
+  padding: 1em 3em;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  background-color: #1a1a1a;
+  color: #737373;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-btn {
+  color: #d0d2d4;
+  background-color: #272729;
+  border-bottom: 2px solid #d0d2d4;
+}
+
+.posts-container {
+  width: 100%;
+}
+
+.each-post {
+  display: flex;
+  background-color: #1a1a1a;
+  border: 1px solid #353536;
+  width: 60%;
+  max-width: 700px;
+  border-radius: 5px;
+  margin: 1em auto;
+  padding: 0.5em;
+}
+
+.upvote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 0.5em;
+  padding: 0;
+}
+
+.num-votes {
+  margin: 0;
+  padding: 0.5em 0;
+}
+
+.arrow-vote {
+  font-size: 1.7em;
+  cursor: pointer;
+}
+
+.post-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.posted-by {
+  font-size: 0.8em;
+  margin: 0;
+  color: #737373;
+}
+
+.each-post-title {
+  font-size: 1.3em;
+  margin: 0.5em 0;
+}
+
+.post-body {
+  color: #cacccf;
+}
+
+.post-img {
+  width: 80%;
+  margin: 0 auto;
 }
 
 @media (max-width: 730px) {
@@ -261,6 +362,12 @@ a {
   }
 }
 
+@media (max-width: 600px) {
+  .post-img {
+    width: 100%;
+  }
+}
+
 @media (max-width: 400px) {
   .title {
     display: none;
@@ -273,8 +380,11 @@ a {
   }
 }
 
-@media (max-width: 9500px) {
+@media (max-width: 900px) {
   .home-post-container {
+    width: 90%;
+  }
+  .each-post {
     width: 90%;
   }
 }
