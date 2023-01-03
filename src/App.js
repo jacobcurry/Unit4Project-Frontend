@@ -7,7 +7,7 @@ import CreatePost from "./components/CreatePost";
 import Home from "./components/Home";
 
 const App = () => {
-  const [baseUrl] = useState("http://localhost:8000/");
+  const [baseUrl] = useState("http://stark-brushlands-66785.herokuapp.com/");
 
   return (
     <BrowserRouter>
