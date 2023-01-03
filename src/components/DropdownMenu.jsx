@@ -22,11 +22,11 @@ const DropdownMenu = (props) => {
       <a href="/" className="menu-item">
         Home
       </a>
-      <a href="/profile" className="menu-item">
-        My Profile
-      </a>
       <a href="/post" className="menu-item">
         Create Post
+      </a>
+      <a href="/profile" className="menu-item">
+        My Profile
       </a>
       <a href="/" className="menu-item">
         Log Out
