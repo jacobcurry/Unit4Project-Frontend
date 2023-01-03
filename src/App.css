@@ -25,6 +25,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #353536;
 }
 
 .title-img-container {
@@ -99,11 +101,12 @@ a {
 
 .dropdown {
   position: absolute;
-  top: 80px;
+  top: 82px;
   right: 5px;
   width: 250px;
   background-color: #1a1a1a;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 1px solid #353536;
   padding: 1rem;
   overflow: hidden;
   animation-name: dropdown;
@@ -135,6 +138,43 @@ a {
 .search-700px {
   display: none;
   margin-bottom: 1rem;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+}
+
+.home-post-container {
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  width: 60%;
+  max-width: 700px;
+  border-radius: 5px;
+  padding: 0.5em;
+  border: 1px solid #353536;
+}
+
+.post-logo {
+  height: 43px;
+  margin-right: 0.5em;
+}
+
+.fake-input {
+  width: 100%;
+  margin: 0.2em 1em 0.2em 0.2em;
+  padding: 0.8em;
+  background-color: #272729;
+  color: #737373;
+  border-radius: 5px;
+  border: 1px solid #272729;
+}
+
+.fake-input:hover {
+  cursor: text;
+  background-color: #1a1a1a;
+  border: 1px solid #d0d2d4;
 }
 
 @media (max-width: 700px) {
