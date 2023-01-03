@@ -233,6 +233,15 @@ a {
   padding: 2em 1em;
 }
 
+.post-file {
+  background-color: #1a1a1a;
+  border: 1px solid #353536;
+  color: #d0d2d4;
+  font-family: "Verdana", "arial", "helvetica", "sans-serif";
+  border-radius: 5px;
+  padding: 2em 1em;
+}
+
 .post-img {
   border-radius: 5px;
   background-color: #1a1a1a;
@@ -261,6 +270,7 @@ a {
 .post-type {
   margin-bottom: 1em;
   display: flex;
+  overflow-x: auto;
 }
 
 .type-btn {

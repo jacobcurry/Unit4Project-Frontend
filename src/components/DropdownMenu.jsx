@@ -19,6 +19,9 @@ const DropdownMenu = (props) => {
           />
         </form>
       </div>
+      <a href="/" className="menu-item">
+        Home
+      </a>
       <a href="/profile" className="menu-item">
         My Profile
       </a>

@@ -47,9 +47,7 @@ const CreatePost = () => {
             rows="10"
           ></textarea>
         )}
-        {postType === "img" && (
-          <div className="post-img">Drag and drop image (if we have time)</div>
-        )}
+        {postType === "img" && <input className="post-file" type="file" />}
         {postType === "link" && (
           <input className="post-link" placeholder="Url" />
         )}
