@@ -100,6 +100,7 @@ a {
 }
 
 .dropdown {
+  z-index: 100;
   position: absolute;
   top: 82px;
   right: 5px;
@@ -384,7 +385,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #272729 inset;
+  -webkit-box-shadow: 0 0 0px 30px #272729 inset;
   -webkit-text-fill-color: #d0d2d4;
 }
 
@@ -490,6 +491,11 @@ input:-webkit-autofill:active {
 }
 .first-name-container {
   margin-right: 1em;
+}
+
+.err-msg {
+  font-size: 0.8em;
+  color: rgb(255, 136, 136);
 }
 
 @media (max-width: 730px) {

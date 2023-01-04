@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "../assets/Search.png";
+import { Link } from "react-router-dom";
 
 const DropdownMenu = (props) => {
   const handleSubmit = (e) => {
@@ -19,18 +20,38 @@ const DropdownMenu = (props) => {
           />
         </form>
       </div>
-      <a href="/" className="menu-item">
-        Home
-      </a>
-      <a href="/post" className="menu-item">
-        Create Post
-      </a>
-      <a href="/profile" className="menu-item">
-        My Profile
-      </a>
-      <a href="/" className="menu-item">
-        Log Out
-      </a>
+      {localStorage.getItem("currentUser") ? (
+        <>
+          <a href="/" className="menu-item">
+            Home
+          </a>
+          <a href="/post" className="menu-item">
+            Create Post
+          </a>
+          <a href="/profile" className="menu-item">
+            My Profile
+          </a>
+          <a
+            onClick={() => localStorage.removeItem("currentUser")}
+            href="/"
+            className="menu-item"
+          >
+            Log Out
+          </a>
+        </>
+      ) : (
+        <>
+          <a href="/" className="menu-item">
+            Home
+          </a>
+          <a href="/login" className="menu-item">
+            Login
+          </a>
+          <a href="/signup" className="menu-item">
+            Signup
+          </a>
+        </>
+      )}
     </div>
   );
 };

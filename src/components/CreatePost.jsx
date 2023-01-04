@@ -4,11 +4,36 @@ import {
   AiOutlineFileImage,
   AiOutlineLink,
 } from "react-icons/ai";
+import axios from "axios";
 
-const CreatePost = () => {
+const CreatePost = (props) => {
   const [postType, setPostType] = useState("text");
 
-  const handleSubmit = () => {};
+  let emptyPost = {
+    user: JSON.parse(localStorage.getItem("currentUser")).id,
+    title: "",
+    formBody: "",
+    imageURL: "",
+  };
+
+  const [post, setPost] = useState(emptyPost);
+
+  const handleChange = (e) => {
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`${props.baseUrl}api/posts`, post)
+      .then((response) => {
+        console.log(response);
+        window.location.pathname = "/";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="post-container">
@@ -38,18 +63,39 @@ const CreatePost = () => {
         </button>
       </div>
       <form onSubmit={handleSubmit} className="post-form">
-        <input className="post-title" type="text" placeholder="Title" />
+        <input
+          name="title"
+          onChange={handleChange}
+          className="post-title"
+          type="text"
+          placeholder="Title"
+          required
+        />
         {postType === "text" && (
           <textarea
+            name="formBody"
+            onChange={handleChange}
             placeholder="Text(optional)"
             className="post-textarea"
             cols="30"
             rows="10"
           ></textarea>
         )}
-        {postType === "img" && <input className="post-file" type="file" />}
+        {postType === "img" && (
+          <input
+            name="image"
+            onChange={handleChange}
+            className="post-file"
+            type="file"
+          />
+        )}
         {postType === "link" && (
-          <input className="post-link" placeholder="Url" />
+          <input
+            name="imageURL"
+            onChange={handleChange}
+            className="post-link"
+            placeholder="Url"
+          />
         )}
         <button className="post-button-form">Post</button>
       </form>

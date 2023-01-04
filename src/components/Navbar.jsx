@@ -4,7 +4,7 @@ import Search from "../assets/Search.png";
 import { Link } from "react-router-dom";
 import DropdownMenu from "./DropdownMenu";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ const Navbar = () => {
       </div>
       <div className="nav-profile-container">
         <div className="caret-container" onClick={() => setOpen(!open)}>
-          <p className="username-p">Username</p>
+          <p className="username-p">{props.currentUser.firstname}</p>
           <i className="bx bx-chevron-down" id="arrow"></i>
         </div>
         {open && <DropdownMenu />}
