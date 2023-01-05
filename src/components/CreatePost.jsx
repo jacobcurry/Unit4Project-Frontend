@@ -28,7 +28,7 @@ const CreatePost = (props) => {
       .post(`${props.baseUrl}api/posts`, post)
       .then((response) => {
         console.log(response);
-        window.location.pathname = "/";
+        // window.location.pathname = "/";
       })
       .catch((error) => {
         console.log(error);

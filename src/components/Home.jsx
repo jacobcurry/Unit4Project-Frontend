@@ -14,7 +14,7 @@ const Home = (props) => {
           Create Post
         </div>
       </div>
-      <Posts baseUrl={props.baseUrl} />
+      <Posts baseUrl={props.baseUrl} search={props.search} />
     </div>
   );
 };

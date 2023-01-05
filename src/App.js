@@ -11,6 +11,7 @@ import Signup from "./components/Signup";
 const App = () => {
   const [baseUrl] = useState("http://localhost:8000/");
   const [currentUser, setCurrentUser] = useState({});
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
@@ -20,11 +21,13 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Navbar currentUser={currentUser} />
+      <Navbar currentUser={currentUser} setSearch={setSearch} />
       <Routes>
         <Route
           path="/"
-          element={<Home baseUrl={baseUrl} currentUser={currentUser} />}
+          element={
+            <Home baseUrl={baseUrl} currentUser={currentUser} search={search} />
+          }
         />
         <Route
           path="/post"

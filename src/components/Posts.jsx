@@ -8,17 +8,30 @@ const Posts = (props) => {
   const [posts, setPosts] = useState([]);
 
   const getPosts = () => {
-    axios.get(`${props.baseUrl}api/posts`).then((response) => {
-      setPosts(response.data);
-    });
+    axios
+      .get(`${props.baseUrl}api/posts?search=${props.search}`)
+      .then((response) => {
+        setPosts(response.data);
+      });
   };
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [props.search]);
 
   return (
     <div className="posts-container">
+      {posts.length === 0 && (
+        <div className="each-post no-results-div">
+          <p className="no-results-p">
+            Hm... we couldn't find any results for "{props.search}"
+          </p>
+          <p className="spelling-p">
+            Double-check your spelling or try different keywords to adjust your
+            search
+          </p>
+        </div>
+      )}
       {posts.map((post, index) => {
         return (
           <div key={index} className="each-post">
@@ -29,7 +42,7 @@ const Posts = (props) => {
             </div>
             <div className="post-info-container">
               <p className="posted-by">
-                Posted by {post.user}{" "}
+                Posted by {JSON.parse(post.user).username}{" "}
                 <ReactTimeAgo date={Date.parse(post.created)} locale="en-US" />
               </p>
               <p className="each-post-title">{post.title}</p>

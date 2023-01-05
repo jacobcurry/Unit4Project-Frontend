@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Logo from "../assets/Logo.png";
 import Search from "../assets/Search.png";
 import { Link } from "react-router-dom";
@@ -16,22 +17,27 @@ const Navbar = (props) => {
         </div>
       </Link>
       <div className="search-container search-701px">
-        <form className="search-form">
+        <form onSubmit={(e) => e.preventDefault()} className="search-form">
           <img className="mag-glass" src={Search} alt="search" />
           <input
             className="search-input"
             type="text"
             name="search"
             placeholder="Search Forgeddit"
+            onChange={(e) => props.setSearch(e.target.value)}
           />
         </form>
       </div>
       <div className="nav-profile-container">
         <div className="caret-container" onClick={() => setOpen(!open)}>
-          <p className="username-p">{props.currentUser.firstname}</p>
+          <p className="username-p">
+            {props.currentUser.username
+              ? props.currentUser.username
+              : "Login/Signup"}
+          </p>
           <i className="bx bx-chevron-down" id="arrow"></i>
         </div>
-        {open && <DropdownMenu />}
+        {open && <DropdownMenu setSearch={props.setSearch} />}
       </div>
     </div>
   );

@@ -17,6 +17,9 @@ const DropdownMenu = (props) => {
             type="text"
             name="search"
             placeholder="Search Forgeddit"
+            onChange={(e) => {
+              props.setSearch(e.target.value);
+            }}
           />
         </form>
       </div>
