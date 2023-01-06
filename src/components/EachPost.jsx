@@ -3,7 +3,7 @@ import ReactTimeAgo from "react-time-ago";
 import { BiUpvote, BiDownvote } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { RiDeleteBin7Line } from "react-icons/ri";
-import { AiOutlineEllipsis } from "react-icons/ai";
+import { AiOutlineEllipsis, AiOutlineClose } from "react-icons/ai";
 import { BiEditAlt } from "react-icons/bi";
 import axios from "axios";
 import EditPost from "./EditPost";
@@ -14,6 +14,7 @@ const EachPost = (props) => {
   const [likes, setLikes] = useState(props.post.likes);
   const [showDelete, setShowDelete] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
+  const [showComments, setShowComments] = useState(false);
 
   const handleUpvote = async (e) => {
     if (upvote === true || downvote === true) {
@@ -133,7 +134,7 @@ const EachPost = (props) => {
           <img className="post-img" src={props.post.imageURL} alt="img" />
         )}
         <div className="more-actions-div">
-          <p className="more-actions-p">
+          <p onClick={() => setShowComments(true)} className="more-actions-p">
             <FaRegCommentAlt size="1.3em" className="more-actions-icon" /> 0
             Comments
           </p>
@@ -194,6 +195,25 @@ const EachPost = (props) => {
           getPosts={props.getPosts}
         />
       )}
+      {showComments ? (
+        <div className="edit-modal">
+          <div className="coming-soon">
+            <p
+              onClick={() => {
+                setShowComments(false);
+              }}
+              className="create-close-p"
+            >
+              <AiOutlineClose size="1.5em" />
+              Close
+            </p>
+            <hr />
+            <p className="under-dev">
+              This feature is currently under development
+            </p>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
