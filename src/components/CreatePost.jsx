@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   AiOutlineFileText,
   AiOutlineFileImage,
   AiOutlineLink,
   AiOutlineClose,
 } from "react-icons/ai";
-import { IoIosConstruct } from "react-icons/io";
 import axios from "axios";
 
 const CreatePost = (props) => {
