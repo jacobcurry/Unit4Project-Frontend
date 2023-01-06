@@ -3,7 +3,9 @@ import {
   AiOutlineFileText,
   AiOutlineFileImage,
   AiOutlineLink,
+  AiOutlineClose,
 } from "react-icons/ai";
+import { IoIosConstruct } from "react-icons/io";
 import axios from "axios";
 
 const CreatePost = (props) => {
@@ -102,6 +104,25 @@ const CreatePost = (props) => {
             placeholder="Url"
           />
         )}
+        {postType === "img" || postType === "link" ? (
+          <div className="edit-modal">
+            <div className="coming-soon">
+              <p
+                onClick={() => {
+                  setPostType("text");
+                }}
+                className="create-close-p"
+              >
+                <AiOutlineClose size="1.5em" />
+                Close
+              </p>
+              <hr />
+              <p className="under-dev">
+                This feature is currently under development
+              </p>
+            </div>
+          </div>
+        ) : null}
         <button className="post-button-form">Post</button>
       </form>
     </div>

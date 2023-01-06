@@ -9,7 +9,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 const App = () => {
-  const [baseUrl] = useState("http://localhost:8000/");
+  const [baseUrl] = useState("https://immense-ridge-00753.herokuapp.com/");
   const [currentUser, setCurrentUser] = useState({});
   const [search, setSearch] = useState("");
 

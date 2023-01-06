@@ -681,6 +681,29 @@ input:-webkit-autofill:active {
   font-size: 1.5em;
 }
 
+.coming-soon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid #353536;
+}
+
+.create-close-p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  margin: 0;
+}
+
+.under-dev {
+  margin-top: 1em;
+}
+
 @media (max-width: 380px) {
   .delete {
     width: 80px;
