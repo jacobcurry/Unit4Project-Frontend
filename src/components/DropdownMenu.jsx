@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "../assets/Search.png";
-import { Link } from "react-router-dom";
 
 const DropdownMenu = (props) => {
+  const [localSearch, setLocalSearch] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.setSearch(localSearch);
   };
-
   return (
     <div className="dropdown">
       <div className="search-container search-700px">
-        <form className="search-form" onClick={handleSubmit}>
+        <form className="search-form" onSubmit={handleSubmit}>
           <img className="mag-glass" src={Search} alt="search" />
           <input
             className="search-input"
@@ -18,7 +19,7 @@ const DropdownMenu = (props) => {
             name="search"
             placeholder="Search Forgeddit"
             onChange={(e) => {
-              props.setSearch(e.target.value);
+              setLocalSearch(e.target.value);
             }}
           />
         </form>

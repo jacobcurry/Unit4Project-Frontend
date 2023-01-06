@@ -43,7 +43,7 @@ const App = () => {
           path="/profile"
           element={
             localStorage.getItem("currentUser") ? (
-              <Profile currentUser={currentUser} />
+              <Profile baseUrl={baseUrl} currentUser={currentUser} />
             ) : (
               <Navigate to="/login" />
             )

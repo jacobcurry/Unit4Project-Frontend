@@ -7,6 +7,12 @@ import DropdownMenu from "./DropdownMenu";
 
 const Navbar = (props) => {
   const [open, setOpen] = useState(false);
+  const [localSearch, setLocalSearch] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.setSearch(localSearch);
+  };
 
   return (
     <div className="navbar-container">
@@ -17,14 +23,14 @@ const Navbar = (props) => {
         </div>
       </Link>
       <div className="search-container search-701px">
-        <form onSubmit={(e) => e.preventDefault()} className="search-form">
+        <form onSubmit={handleSubmit} className="search-form">
           <img className="mag-glass" src={Search} alt="search" />
           <input
             className="search-input"
             type="text"
             name="search"
             placeholder="Search Forgeddit"
-            onChange={(e) => props.setSearch(e.target.value)}
+            onChange={(e) => setLocalSearch(e.target.value)}
           />
         </form>
       </div>

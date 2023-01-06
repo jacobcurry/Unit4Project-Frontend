@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AiOutlineFileText,
   AiOutlineFileImage,
@@ -10,10 +10,14 @@ const CreatePost = (props) => {
   const [postType, setPostType] = useState("text");
 
   let emptyPost = {
-    user: JSON.parse(localStorage.getItem("currentUser")).id,
+    user_id: JSON.parse(localStorage.getItem("currentUser")).id,
+    username: JSON.parse(localStorage.getItem("currentUser")).username,
     title: "",
     formBody: "",
     imageURL: "",
+    likes: 0,
+    upvoted: [0],
+    downvoted: [0],
   };
 
   const [post, setPost] = useState(emptyPost);
@@ -24,11 +28,12 @@ const CreatePost = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(post);
     axios
       .post(`${props.baseUrl}api/posts`, post)
       .then((response) => {
         console.log(response);
-        // window.location.pathname = "/";
+        window.location.pathname = "/";
       })
       .catch((error) => {
         console.log(error);
